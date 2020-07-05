@@ -1,0 +1,50 @@
+.table {
+  color: white;
+  width: 90%;
+  margin: 0 auto;
+  td:first-child {
+    color: black;
+    font-weight: bold;
+  }
+  // td:nth-child(2) {
+  //   color: beige !important;
+  // }
+  //----second td is shown as "a" on DOM
+  a:first-child {
+    color: white;
+    font-weight: bold;
+    word-break: break-all;
+    // text-decoration: none;
+  }
+  th:first-child {
+    color: red;
+  }
+  th:nth-child(2) {
+    color: yellowgreen;
+    text-transform: uppercase;
+  }
+  th:nth-child(3) {
+    color: red;
+    text-transform: uppercase;
+    margin-left: 0;
+    padding-left: 0.5rem;
+  }
+  .caption {
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: GreatVibes;
+    font-size: 3rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+.delete-icon {
+  height: 2rem;
+  width: 2rem;
+  padding-left: 3rem;
+  &:hover {
+    cursor: pointer;
+    background-color: red;
+  }
+}

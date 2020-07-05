@@ -1,0 +1,17 @@
+.create-lyric-button {
+  height: 3rem;
+  width: 8%;
+  font-size: 1.2rem;
+  margin-left: 0;
+  transition: 2s all ease-in-out;
+  color: black;
+  padding-left: 0;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  margin-right: 5rem;
+  &:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+  }
+}

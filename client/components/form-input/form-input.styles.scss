@@ -1,0 +1,66 @@
+//sass variable
+$sub-color: black;
+$main-color: rgb(23, 124, 23);
+
+@mixin shrinkLabel {
+  top: -1rem;
+  font-size: 1.6rem;
+  color: $main-color;
+}
+
+.group {
+  position: relative;
+  // flex-grow: 1;
+
+  margin: auto auto;
+  width: 80%;
+
+  .form-input {
+    // word-break: break-all;
+    // overflow-wrap: break-word;
+
+    background-color: white;
+    // color: $sub-color;
+    font-size: 2rem;
+    padding: 0 0 0 0.1rem;
+    display: block;
+    border: none;
+    // border-radius: 0;
+    border-bottom: 0.1rem solid $sub-color;
+    margin: 2.5rem auto;
+
+    //outlines are similar to border
+    //Outlines never take up space, as they are drawn outside of an element's content.
+
+    &:focus {
+      outline: none;
+    }
+
+    //~ Sign:
+    //It is general sibling combinator and similar to Adjacent sibling combinator. the difference is that the second selector does NOT have to immediately follow the first one means It will select all elements that is preceded by the former selector.
+    //whenever browsser focus on form input
+    &:focus ~ .form-input-label {
+      @include shrinkLabel();
+    }
+  }
+
+  input[type="password"] {
+    letter-spacing: 0.5em;
+  }
+
+  //the moment browser focused on the input, we get transition.
+  .form-input-label {
+    color: $sub-color;
+    font-size: 1.6rem;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5.5%;
+    top: 2.4rem;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel();
+    }
+  }
+}

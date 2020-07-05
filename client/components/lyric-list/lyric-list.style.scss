@@ -1,0 +1,36 @@
+table {
+  width: 86%;
+  margin-left: 2rem;
+  .music-icon {
+    padding-left: 2rem;
+    color: yellow;
+    width: 7%;
+    border: none;
+  }
+  .content {
+    color: white;
+    word-break: break-all;
+  }
+  .like-icon {
+    cursor: pointer;
+    right: 0;
+    color: green;
+    text-align: end;
+  }
+
+  caption {
+    font-family: GreatVibes;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+    font-size: 2rem;
+    width: 86%;
+    margin: 3rem 0 1rem 2rem;
+  }
+
+  td {
+    padding-bottom: 0.2rem;
+    padding-top: 0;
+    color: yellow;
+  }
+}

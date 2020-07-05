@@ -1,0 +1,16 @@
+.header {
+  //   position: absolute;
+  display: flex;
+  top: 0;
+  align-items: center;
+  margin-bottom: 3rem;
+  .github-icon {
+    height: 2rem;
+    width: 2rem;
+  }
+  .img {
+    height: 2rem;
+    width: 2rem;
+    background-position: center;
+  }
+}
