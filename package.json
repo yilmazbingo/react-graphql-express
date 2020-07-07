@@ -1,7 +1,7 @@
 {
-  "name": "lyrical",
+  "name": "GraphQL",
   "version": "1.0.0",
-  "description": "Starter point for a graphQL course",
+  "description": "graphql-react-node-webpack-mongodb",
   "main": "index.js",
   "repository": {
     "type": "git",
