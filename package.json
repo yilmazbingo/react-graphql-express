@@ -8,7 +8,9 @@
     "url": "https://github.com/yilmazbingo/react-graphql-express"
   },
   "scripts": {
-    "dev": "  nodemon -r dotenv/config index.js --watch client"
+    "dev": "  nodemon -r dotenv/config index.js --watch client",
+    "postinstall": "webpack -p",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
