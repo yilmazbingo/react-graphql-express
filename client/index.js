@@ -9,8 +9,13 @@ import AppRouter from "./Router";
 import "./main.scss";
 
 //this will connect our client to the endpoint
+
+const uri =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:4500/graphql"
+    : "https://react-webpack-graphql.herokuapp.com/graphql";
 const link = new HttpLink({
-  uri: "http://localhost:4500/graphql",
+  uri,
 });
 
 //in redux we use selectors to cache the state
