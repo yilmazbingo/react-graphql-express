@@ -3,9 +3,13 @@ $sub-color: black;
 $main-color: rgb(23, 124, 23);
 
 @mixin shrinkLabel {
-  top: -1rem;
+  top: -0.8rem;
   font-size: 1.6rem;
-  color: $main-color;
+  color: $sub-color;
+  &.create-lyric-input {
+    color: white;
+    padding-left: 0;
+  }
 }
 
 .group {
@@ -16,16 +20,13 @@ $main-color: rgb(23, 124, 23);
   width: 80%;
 
   .form-input {
-    // word-break: break-all;
-    // overflow-wrap: break-word;
-
+    // flex-grow: 1;
     background-color: white;
     // color: $sub-color;
     font-size: 2rem;
     padding: 0 0 0 0.1rem;
     display: block;
     border: none;
-    // border-radius: 0;
     border-bottom: 0.1rem solid $sub-color;
     margin: 2.5rem auto;
 
@@ -56,7 +57,7 @@ $main-color: rgb(23, 124, 23);
     position: absolute;
     pointer-events: none;
     left: 5.5%;
-    top: 2.4rem;
+    top: 2.6rem;
     transition: 300ms ease all;
 
     &.shrink {

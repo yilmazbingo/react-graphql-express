@@ -1,0 +1,15 @@
+.empty-page {
+  background-position: center;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 0 0 18%;
+  padding-top: 5rem;
+  color: white;
+
+  .add-song {
+    height: 4rem;
+    width: 4rem;
+    color: green;
+  }
+}

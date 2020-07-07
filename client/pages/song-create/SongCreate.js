@@ -54,7 +54,7 @@ class SongCreate extends React.Component {
                 type="text"
                 label="Create Song"
               />
-              <Button>Create</Button>
+              <Button className="add-song">Create Your Song</Button>
             </form>
           )}
         </Mutation>

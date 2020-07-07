@@ -5,6 +5,7 @@ import { ApolloProvider } from "react-apollo";
 import { InMemoryCache, NormalizedCacheObject } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import AppRouter from "./Router";
+// import "normalize.css/normalize.css";
 import "./main.scss";
 
 //this will connect our client to the endpoint
@@ -12,6 +13,7 @@ const link = new HttpLink({
   uri: "http://localhost:4500/graphql",
 });
 
+//in redux we use selectors to cache the state
 const cache = new InMemoryCache();
 
 //apollo client talks to backend and stores the data

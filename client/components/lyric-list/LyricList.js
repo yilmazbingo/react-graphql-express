@@ -35,7 +35,7 @@ const LyricList = (props) => {
   };
 
   return (
-    <table>
+    <table className="lyric-list-table">
       <caption> Lyrics of {`${props.title}`} </caption>
       <tbody>{renderLyrics()}</tbody>
     </table>

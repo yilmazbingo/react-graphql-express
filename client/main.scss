@@ -1,6 +1,10 @@
 html {
   font-size: 62.5%;
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   // filter: contrast(200%);
 }
 body {

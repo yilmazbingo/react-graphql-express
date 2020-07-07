@@ -24,11 +24,11 @@ const LyricCreate = (props) => {
   return (
     <form className="lyric-form " onSubmit={handleSubmit}>
       <FormInput
+        className="create-lyric-input"
         value={content}
         handleChange={handleChange}
         label="Add a Lyric"
       ></FormInput>
-      <Button className="create-lyric-button">ADD</Button>
     </form>
   );
 };

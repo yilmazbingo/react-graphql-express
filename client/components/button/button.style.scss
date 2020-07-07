@@ -1,17 +1,36 @@
-.create-lyric-button {
-  height: 3rem;
-  width: 8%;
-  font-size: 1.2rem;
-  margin-left: 0;
-  transition: 2s all ease-in-out;
-  color: black;
-  padding-left: 0;
-  font-weight: bold;
+.button {
   letter-spacing: 0.2rem;
-  margin-right: 5rem;
-  &:hover {
-    cursor: pointer;
-    background-color: blue;
-    color: white;
+  font-weight: bold;
+  height: 3.5rem;
+  &.clear-song-list {
+    color: red;
+    margin-left: 1rem;
+    transition: 2s all ease-in-out;
+    height: 3.7rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: red;
+      color: black;
+    }
+  }
+  &.add-song {
+    height: 3.5rem;
+    font-weight: bold;
+    background-color: rgb(25, 211, 25);
+    color: blue;
+    font-weight: bolder;
+  }
+
+  &.clear-lyrics {
+    position: fixed;
+    bottom: 2rem;
+    color: black;
+    // margin-left: auto;
+    // margin-right:auto
+    // margin-left: 40%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

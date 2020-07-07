@@ -1,17 +1,23 @@
-.song-detail-page {
-  background-color: #130f40;
-  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
-  height: 100vh;
-}
+.baselayout {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 85vh;
+  &.create-new-song-page {
+    background-image: url("/images/add-music.jpg");
 
-.home-page {
-  background-color: #d4418e;
-  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
-  height: 100vh;
-}
+    //only: The only keyword prevents older browsers that do not support media queries with media features from applying the specified styles. It has no effect on modern browsers.
+    //since this is a function, i converted 1rem=10px but it does not work here
+    @media only screen and (max-width: 600px) {
+      background-image: none;
+    }
+  }
 
-.create-new-song-page {
-  background-color: #130f40;
-  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
-  height: 100vh;
+  &.home-page {
+    background-image: url("/images/music.jpg");
+  }
+
+  &.song-detail-page {
+    background-color: #130f40;
+    background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+  }
 }

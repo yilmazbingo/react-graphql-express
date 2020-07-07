@@ -1,6 +1,7 @@
-table {
-  width: 86%;
-  margin-left: 2rem;
+.lyric-list-table {
+  width: 80vw;
+  position: relative;
+  margin-top: 10%;
   .music-icon {
     padding-left: 2rem;
     color: yellow;
@@ -24,8 +25,8 @@ table {
     font-weight: bold;
     color: red;
     font-size: 2rem;
-    width: 86%;
-    margin: 3rem 0 1rem 2rem;
+    // width: 86%;
+    // margin: 3rem 0 1rem 2rem;
   }
 
   td {

@@ -7,6 +7,7 @@ const Lyric = mongoose.model("lyric");
 const Song = mongoose.model("song");
 
 //query kewyowrds "song","songs" and lyric
+// we return raw JSON and graphql turns it to its own data type
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: () => ({

@@ -1,21 +1,22 @@
-const mongoose = require('mongoose');
-const graphql = require('graphql');
+const mongoose = require("mongoose");
+const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
-const LyricType = require('./lyric_type');
-const Song = mongoose.model('song');
+const LyricType = require("./lyric_type");
+const Song = mongoose.model("song");
 
 const SongType = new GraphQLObjectType({
-  name:  'SongType',
+  name: "SongType",
   fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     lyrics: {
       type: new GraphQLList(LyricType),
       resolve(parentValue) {
+        //findLyrics static method of Song model
         return Song.findLyrics(parentValue.id);
-      }
-    }
-  })
+      },
+    },
+  }),
 });
 
 module.exports = SongType;

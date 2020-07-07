@@ -5,18 +5,27 @@ import CreateLyrics from "../../components/create-lyrics/CreateLyrics";
 import LyricList from "../../components/lyric-list/LyricList";
 import Spinner from "../../components/spinner/spinner";
 import BaseLayout from "../../components/base-layout/BaseLayout";
-
+import Button from "../../components/button/Button";
+import "./song-detail.scss";
 const SongDetail = (props) => {
   const { song } = props.data;
-  console.log(props);
+  // console.log("props in song detail", props);
 
   return (
     <BaseLayout className="song-detail-page">
       {song ? (
-        <div>
+        <main className="song-detail-main">
           <LyricList lyrics={song.lyrics} title={song.title} />
           <CreateLyrics songId={props.match.params.id} />
-        </div>
+
+          {song.lyrics.length ? (
+            <a className="clear-lyrics" href="/deletelyrics">
+              <Button>Clear the Lyrics</Button>
+            </a>
+          ) : (
+            ""
+          )}
+        </main>
       ) : (
         <Spinner />
       )}

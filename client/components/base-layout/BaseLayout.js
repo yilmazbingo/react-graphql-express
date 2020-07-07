@@ -7,7 +7,7 @@ const BaseLayout = (props) => {
     <React.Fragment>
       <div>
         <Header></Header>
-        <main className={className}>{children}</main>
+        <main className={`baselayout ${className}`}>{children}</main>
       </div>
     </React.Fragment>
   );

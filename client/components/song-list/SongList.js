@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "react-apollo";
 import query from "../../Graphql/queries/fetchSongs";
 import mutationDeleteSong from "../../Graphql/mutations/deleteSong";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { FcEmptyTrash } from "react-icons/fc";
+import { FcPlus } from "react-icons/fc";
+
 import { Link } from "react-router-dom";
+import EmptyHomePage from "../empty-home-page/EmptyHomePage";
+import Button from "../button/Button";
 
 import Spinner from "../spinner/spinner";
 import "./song-list.style.scss";
@@ -14,20 +17,29 @@ const SongList = (props) => {
   //this queiry is associated with the SongList. thats why we use refetch()
   //we could refetch queries as in SongCreate as well
   //this will update the data on the server
+
+  // const [mounted, setMounted] = useState(false);
+  // useEffect(() => {
+  //   setMounted(true);
+  //   return () => console.log("I unmounted from songlist");
+  // }, []);
+
+  console.log("props in songlist", props);
+  const { loading, songs, refetch } = props.data;
   const onSongDelete = (id) => {
-    props.mutate({ variables: { id } }).then(() => props.data.refetch());
+    props.mutate({ variables: { id } }).then(() => refetch());
   };
 
   const renderSongs = () => {
-    return props.data.songs.map(({ id, title }, index) => {
+    return songs.map(({ id, title }, index) => {
       return (
         <tr key={id}>
-          <td> {index + 1} </td>
+          <td> {index + 1} - </td>
           <td>
             <Link to={`/songs/${id}`}> {title}</Link>
           </td>
           <td>
-            <FcEmptyTrash
+            <RiDeleteBin6Line
               className="delete-icon"
               onClick={() => onSongDelete(id)}
             />
@@ -38,20 +50,33 @@ const SongList = (props) => {
   };
   return (
     <React.Fragment>
-      {props.data.loading ? (
+      {loading ? (
         <Spinner />
+      ) : songs.length ? (
+        <main className="songlist-body">
+          <table className="table">
+            <caption className="caption">List Of Songs</caption>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Song Title</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>{renderSongs()}</tbody>
+          </table>
+          <section className="buttons-section">
+            <Link to="/songs/new">
+              <FcPlus className="plus-icon" />
+            </Link>
+
+            <a href="/delete">
+              <Button className="clear-song-list">Clear the List</Button>
+            </a>
+          </section>
+        </main>
       ) : (
-        <table className="table">
-          <caption className="caption">List Of Songs</caption>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Song Title</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>{renderSongs()}</tbody>
-        </table>
+        <EmptyHomePage songs={songs} />
       )}
     </React.Fragment>
   );
