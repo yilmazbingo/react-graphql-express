@@ -30,12 +30,12 @@ class SongCreate extends React.Component {
         variables: {
           title: this.state.title,
         },
-        //when we r pushed to "/" it will refetch
-        //query will not attempt twice in "/"
-        //this query is not associated with the songCreate component
+        //when we r pushed to "/" to show the list it will refetch from db to update the list
+        //apollo does not know that new created song is the part of that list.
         refetchQueries: [{ query }],
       })
       .then(() => this.props.history.push("/"));
+      // we are navigating right after we get the result
   }
 
   render() {
@@ -64,6 +64,10 @@ class SongCreate extends React.Component {
 }
 
 const mutation = gql`
+# AddSong is the name of the mutation. we can reach this from outside. this is for client side usage. when we call this, it will invoke the addSong(). this AddSong can be named anything else. 
+# if we had 2 mutations, when we pass variables from the component, we would use:"props.mutate.AddSong"
+# "$title" is pass from props.mutate({variables:{}})
+# on the server, we call addSong
   mutation AddSong($title: String) {
     addSong(title: $title) {
       title
@@ -71,5 +75,5 @@ const mutation = gql`
   }
 `;
 
-//we have access to props.mutate() which will run the mutation
+//we have access to props.mutate() which will run the mutation that we passed. one mutation at a time.
 export default graphql(mutation)(SongCreate);

@@ -24,8 +24,9 @@ const SongList = (props) => {
   //   return () => console.log("I unmounted from songlist");
   // }, []);
 
-  console.log("props in songlist", props);
+  // response of our query lives in props.data. Becasue our query name is "songs",our songs will be here
   const { loading, songs, refetch } = props.data;
+  // we pass the variables inside the "query variables" section of Graphiql server
   const onSongDelete = (id) => {
     props.mutate({ variables: { id } }).then(() => refetch());
   };

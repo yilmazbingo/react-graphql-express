@@ -4,10 +4,8 @@ import { AiOutlineGithub } from "react-icons/ai";
 import "./header.style.scss";
 
 const Header = () => {
-  const url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:4500/graphql"
-      : "https://react-webpack-graphql.herokuapp.com/graphql";
+  const url =process.env.GRAPHQL_SERVER
+    
 
   return (
     <header className="header">

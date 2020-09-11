@@ -9,8 +9,8 @@ const app = express();
 
 const Song = mongoose.model("song");
 const Lyric = mongoose.model("lyric");
-
-console.log(process.env.MONGODB_URL);
+console.log('processenv',process.env)
+console.log(process.env.DB_URL);
 
 //To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true }
 mongoose.Promise = global.Promise;
@@ -22,8 +22,9 @@ mongoose
     useUnifiedTopology: true,
   })
   .catch((e) => {
+    // in case you are using mongodb tier from the website
     console.log("error in mongose", e.message),
-      e ? (dbUrl = "mongodb://localhost:27017/graphqlDB") : process.exit(1);
+      e ? (dbUrl = "mongodb://127.0.0.1:27017/graphqlDB") : process.exit(1);
   })
   .then(() => console.log("connected to the mongodb"))
   .catch(() => {
@@ -48,6 +49,7 @@ app.use("/deletelyrics", async (req, res) => {
   await Lyric.deleteMany();
   res.redirect("/");
 });
+// ***********          GRAPHQL SERVER      ************
 app.use(
   "/graphql",
   expressGraphQL({

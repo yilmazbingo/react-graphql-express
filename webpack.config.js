@@ -71,7 +71,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      "process.env.AL": JSON.stringify(process.env.AL),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
     }),
   ],
